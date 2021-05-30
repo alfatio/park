@@ -5,19 +5,17 @@ const jsonPath = path.join(__dirname,'data.json')
 
 function execute(commandLine){
     let command = commandLine.split(' ')
-    try {
-        switch (command[0]) {
-            case "create_parking_lot":
-                return createParkingLot(Number(command[1]))
-            case "park":
-                return registerPark(command[1])
-            case "leave":
-                return leavePark(command[1],command[2])
-            default:
-                throw new Error("unknown command")
-        }
-    } catch (err) {
-        throw err
+    switch (command[0]) {
+        case "create_parking_lot":
+            return createParkingLot(Number(command[1]))
+        case "park":
+            return registerPark(command[1])
+        case "leave":
+            return leavePark(command[1],command[2])
+        case "status":
+            return statusPark()
+        default:
+            throw new Error("unknown command")
     }
 }
 
@@ -98,6 +96,17 @@ function leavePark(plateNumber,duration){
         }
     }
     return `Registration number ${plateNumber} not found`
+}
+
+function statusPark(){
+    let parkData = readJSON()
+    let output = ["Slot No. Registration No."]
+    for(let key in parkData){
+        if(parkData[key] !== ""){
+            output.push(`${key} ${parkData[key]}`)
+        }
+    }
+    return output.join("\n")
 }
 
 
