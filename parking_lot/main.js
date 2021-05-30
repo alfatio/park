@@ -3,7 +3,7 @@ const path  = require('path')
 const fs = require('fs')
 const execute = require('./app.js')
 
-// clear data.json on app start
+// uncomment to clear data.json on app start
 // fs.writeFileSync(path.join(__dirname,'data.json'),JSON.stringify({}),'utf8')
 
 const filePath = process.argv[2]
