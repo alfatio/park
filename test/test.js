@@ -78,15 +78,15 @@ describe('required expected output', function () {
         })
     })
     describe(`command: status`, function () {
-        it(`return: Slot No. Registration No.
-        1 KA-01-HH-1234
-        2 KA-01-HH-9999
-        3 KA-01-BB-0001
-        4 KA-01-HH-7777
-        5 KA-01-HH-2701`, 
+        it(`return: Slot No.    Registration No.
+        1           KA-01-HH-1234
+        2           KA-01-HH-9999
+        3           KA-01-BB-0001
+        4           KA-01-HH-7777
+        5           KA-01-HH-2701`, 
         function () {
         let returned = execute("status")
-        assert(returned === `Slot No. Registration No.\n1 KA-01-HH-1234\n2 KA-01-HH-9999\n3 KA-01-BB-0001\n4 KA-01-HH-7777\n5 KA-01-HH-2701`, `wrong message output, returned: ${returned}`)
+        assert(returned === `Slot No.    Registration No.\n1           KA-01-HH-1234\n2           KA-01-HH-9999\n3           KA-01-BB-0001\n4           KA-01-HH-7777\n5           KA-01-HH-2701`,`wrong message output, returned: ${returned}`)
         })
     })
     describe(`command: park KA-01-P-333`, function () {
@@ -139,16 +139,16 @@ describe('required expected output', function () {
     })
     describe(`command: status`, function () {
         it(`return: 
-        Slot No. Registration No.
-        1 KA-09-HH-0987
-        2 KA-01-HH-9999
-        3 CA-09-IO-1111
-        4 KA-01-HH-7777
-        5 KA-01-HH-2701
-        6 KA-01-P-333`, 
+        Slot No.    Registration No.
+        1           KA-09-HH-0987
+        2           KA-01-HH-9999
+        3           CA-09-IO-1111
+        4           KA-01-HH-7777
+        5           KA-01-HH-2701
+        6           KA-01-P-333`, 
         function () {
         let returned = execute("status")
-        assert(returned === `Slot No. Registration No.\n1 KA-09-HH-0987\n2 KA-01-HH-9999\n3 CA-09-IO-1111\n4 KA-01-HH-7777\n5 KA-01-HH-2701\n6 KA-01-P-333`, `wrong message output, returned: ${returned}`)
+        assert(returned === `Slot No.    Registration No.\n1           KA-09-HH-0987\n2           KA-01-HH-9999\n3           CA-09-IO-1111\n4           KA-01-HH-7777\n5           KA-01-HH-2701\n6           KA-01-P-333`, `wrong message output, returned: ${returned}`)
         })
     })
 })

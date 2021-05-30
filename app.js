@@ -100,10 +100,10 @@ function leavePark(plateNumber,duration){
 
 function statusPark(){
     let parkData = readJSON()
-    let output = ["Slot No. Registration No."]
+    let output = ["Slot No.    Registration No."]
     for(let key in parkData){
         if(parkData[key] !== ""){
-            output.push(`${key} ${parkData[key]}`)
+            output.push(`${key}           ${parkData[key]}`)
         }
     }
     return output.join("\n")
