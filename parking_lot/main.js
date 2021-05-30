@@ -9,9 +9,9 @@ const execute = require('./app.js')
 const filePath = process.argv[2]
 const data = fs.readFileSync(path.join(__dirname,"..",filePath),'utf-8').split('\n')
 
-data.every(command => {
+data.every(commandLine => {
     try {
-        console.log(execute(command.split(' ')))
+        console.log(execute(commandLine))
         return true
     } catch (err) {
         console.error(err)
