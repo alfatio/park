@@ -4,6 +4,31 @@ const execute = require(path.join(__dirname, '..', 'app.js'))
 
 
 describe('required expected output', function () {
+    describe(`command: random`,function(){
+        it('return: Error: unknown command', function () {
+            assert.throws(() => execute("random"),"unknown command")
+        })
+    })
+    describe(`command: create_parking_lot 0`,function(){
+        it('return: Error: parking slot cannot be 0', function () {
+            assert.throws(() => execute("create_parking_lot 0"),"parking slot cannot be 0")
+        })
+    })
+    describe(`command: park`,function(){
+        it('return: Error: invalid plate number input', function () {
+            assert.throws(() => execute("park"),"invalid plate number input")
+        })
+    })
+    describe(`command: leave`,function(){
+        it('return: Error: invalid plate number input', function () {
+            assert.throws(() => execute("leave"),"invalid plate number input")
+        })
+    })
+    describe(`command: leave plate NaN`,function(){
+        it('return: Error: invalid duration input', function () {
+            assert.throws(() => execute("leave plate NaN"),"invalid duration input")
+        })
+    })
     describe(`command: create_parking_lot 6`, function () {
         it('return: Created parking lot with 6 slots', function () {
             let returned = execute("create_parking_lot 6")
@@ -61,13 +86,7 @@ describe('required expected output', function () {
         5 KA-01-HH-2701`, 
         function () {
         let returned = execute("status")
-        assert(returned === `
-        Slot No. Registration No.
-        1 KA-01-HH-1234
-        2 KA-01-HH-9999
-        3 KA-01-BB-0001
-        4 KA-01-HH-7777
-        5 KA-01-HH-2701`, `wrong message output, returned: ${returned}`)
+        assert(returned === `Slot No. Registration No.\n1 KA-01-HH-1234\n2 KA-01-HH-9999\n3 KA-01-BB-0001\n4 KA-01-HH-7777\n5 KA-01-HH-2701`, `wrong message output, returned: ${returned}`)
         })
     })
     describe(`command: park KA-01-P-333`, function () {
@@ -129,14 +148,7 @@ describe('required expected output', function () {
         6 KA-01-P-333`, 
         function () {
         let returned = execute("status")
-        assert(returned === `
-        Slot No. Registration No.
-        1 KA-09-HH-0987
-        2 KA-01-HH-9999
-        3 CA-09-IO-1111
-        4 KA-01-HH-7777
-        5 KA-01-HH-2701
-        6 KA-01-P-333`, `wrong message output, returned: ${returned}`)
+        assert(returned === `Slot No. Registration No.\n1 KA-09-HH-0987\n2 KA-01-HH-9999\n3 CA-09-IO-1111\n4 KA-01-HH-7777\n5 KA-01-HH-2701\n6 KA-01-P-333`, `wrong message output, returned: ${returned}`)
         })
     })
 })

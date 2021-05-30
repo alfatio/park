@@ -79,7 +79,7 @@ function registerPark(plateNumber){
 function leavePark(plateNumber,duration){
     if(typeof(plateNumber) !== 'string' || plateNumber == null){
         throw new Error("invalid plate number input")
-    }else if(Number(duration) == NaN || Number(duration) < 0){
+    }else if(isNaN(Number(duration)) || Number(duration) < 0){
         throw new Error("invalid duration input")
     }
     duration = Number(duration)

@@ -4,13 +4,14 @@
   "description": "parking lot app",
   "main": "app.js",
   "scripts": {
-    "test": "mocha"
+    "test": "nyc mocha"
   },
   "keywords": [],
   "author": "alfatio",
   "license": "ISC",
   "dependencies": {
     "chai": "^4.3.4",
-    "mocha": "^8.4.0"
+    "mocha": "^8.4.0",
+    "nyc": "^15.1.0"
   }
 }
